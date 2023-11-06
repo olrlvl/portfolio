@@ -1,27 +1,20 @@
-# React + TypeScript + Vite
+# React Portpolio
+## 프로젝트 개요
+현재까지 회사에서 Vue만 사용해서 프로젝트를 진행한 경험만 있기에 예전부터 관심과 아쉬움이 남았던 react.js를 사용해서 포트폴리오를 만드는 중입니다.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
+## 시작하기
 ```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+   npm run dev
 ```
+[http://localhost:5173/](http://localhost:5173/) 연결
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## 배포하기
+배포는 프로젝트 완성후 호스팅서비스인 Vercel, Netlify, GitHub Pages 등등 여러 서비스를 비교해보고 결정하려 합니다.
+
+## 현재까지 사용된 기술 - (2023-11-05 update)
+### FrontEnd
+- React.js(v18.2)
+- Vite(v4.4.5)
+- TypeScript
+- TailwindCSS
+   
