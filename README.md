@@ -17,4 +17,5 @@
 - Vite(v4.4.5)
 - TypeScript
 - TailwindCSS
+- Swiper.js
    
