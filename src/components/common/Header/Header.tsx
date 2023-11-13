@@ -12,25 +12,25 @@ function Header() {
                     {/* Menu */}
                     <nav className="ml-auto">
                         <ul className="flex gap-4 flex-shrink-0">
-                            <li className="flex cursor-pointer gap-1">
+                            <li className="flex cursor-pointer gap-1 flex-shrink-0">
                                 <div className="icon-md bg-red-200"></div>
                                 <a href="#" className="text-itemText text-gray-700  hover:text-purple-600">
                                     About me
                                 </a>
                             </li>
-                            <li className="flex cursor-pointer gap-1">
+                            <li className="flex cursor-pointer gap-1 flex-shrink-0">
                                 <div className="icon-md bg-red-200"></div>
                                 <a href="#" className="text-itemText text-gray-700 hover:text-purple-600">
                                     Skills
                                 </a>
                             </li>
-                            <li className="flex cursor-pointer gap-1">
+                            <li className="flex cursor-pointer gap-1 flex-shrink-0">
                                 <div className="icon-md bg-red-200"></div>
                                 <a href="#" className="text-itemText text-gray-700 hover:text-purple-600">
                                     Projects
                                 </a>
                             </li>
-                            <li className="flex cursor-pointer gap-1">
+                            <li className="flex cursor-pointer gap-1 flex-shrink-0">
                                 <div className="icon-md bg-red-200"></div>
                                 <a href="#" className="text-itemText text-gray-700 hover:text-purple-600">
                                     Career
