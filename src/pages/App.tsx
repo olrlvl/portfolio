@@ -1,9 +1,18 @@
 import { useRef } from "react";
-
-import { Swiper, SwiperSlide } from "swiper/react"; // basic
+import { Swiper, SwiperSlide } from "swiper/react";
+import tw from "tailwind-styled-components";
 import SwiperCore from "swiper";
+import "swiper/css";
 
-import "swiper/css"; //basic
+const Container = tw.div`
+    flex
+    items-center
+    justify-center
+    flex-col
+    w-full
+    h-13
+    bg-indigo-600
+`;
 
 function App() {
     const swiperRef = useRef<SwiperCore>();
@@ -45,7 +54,9 @@ function App() {
                 <div className="icon-xl bg-black cursor-pointer mt-8"></div>
             </section>
 
-            <section className="bg-gray-500 flex flex-col items-center">스크롤을 내렸을때</section>
+            <section className="bg-gray-500 flex flex-col items-center">
+                <Container>스크롤을 내렸을때</Container>
+            </section>
         </main>
     );
 }
