@@ -1,6 +1,8 @@
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import tw from "tailwind-styled-components";
+import "fullpage.js/vendors/scrolloverflow"; // Optional. When using scrollOverflow:true
+import ReactFullpage from '@fullpage/react-fullpage';
 import SwiperCore from "swiper";
 import "swiper/css";
 
