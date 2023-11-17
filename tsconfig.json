@@ -30,6 +30,6 @@
         "noFallthroughCasesInSwitch": true
     },
     "include": ["src"],
-
+    "files": ["./node_modules/@fullpage/react-fullpage/types/index.d.ts"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }
