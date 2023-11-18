@@ -17,23 +17,21 @@ const Container = tw.div`
 
 function App() {
     const swiperRef = useRef<SwiperCore>();
-
     return (
-        <>
+        <div>
             <ReactFullpage
-                debug={true}
                 licenseKey="gplv3-license"
-                credits={{ enabled: false }}
+                credits={{ enabled: true }}
                 navigation={true}
                 navigationPosition="right"
                 scrollingSpeed={650}
-                anchors={["slide2"]}
-                render={({ state, fullpageApi }) => {
+                anchors={["slide1", "slide2"]}
+                render={({ fullpageApi }) => {
                     return (
                         <ReactFullpage.Wrapper>
-                            <main className="bg-gray-300 w-full  pt-[72px] flex flex-col relative">
+                            <section className="section bg-white w-full flex flex-col relative">
                                 {/* Intro Section */}
-                                <section className="bg-white py-8 flex flex-col items-center justify-center h-full">
+                                <section className="bg-white py-8 flex flex-col items-center justify-center h-full" data-achor="slide1">
                                     <h2 className="text-4xl">프로젝트 제목 소개</h2>
                                     <p className="mt-3">기여도 및 부연설명 부분</p>
 
@@ -66,16 +64,14 @@ function App() {
 
                                     <div className="icon-xl bg-black cursor-pointer mt-8"></div>
                                 </section>
+                            </section>
 
-                                <section className="bg-gray-500 flex flex-col items-center" data-achor="slide2">
-                                    <Container onClick={() => fullpageApi.moveSectionDown}>스크롤을 내렸을때</Container>
-                                </section>
-                            </main>
+                            <section className="section bg-gray-500 flex flex-col items-center" data-achor="slide2"></section>
                         </ReactFullpage.Wrapper>
                     );
                 }}
             />
-        </>
+        </div>
     );
 }
 
