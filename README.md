@@ -11,7 +11,7 @@
 ## 배포하기
 배포는 프로젝트 완성후 호스팅서비스인 Vercel, Netlify, GitHub Pages 등등 여러 서비스를 비교해보고 결정하려 합니다.
 
-## 현재까지 사용된 기술 - (2023-11-15 update)
+## 현재까지 사용된 기술 - (2023-11-22 update)
 ### FrontEnd
 - React.js(v18.2)
 - Vite(v4.4.5)
@@ -19,4 +19,5 @@
 - TailwindCSS
 - Swiper.js
 - Tailwind-styled-components
+- react-fullpage
    
