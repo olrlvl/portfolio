@@ -22,14 +22,15 @@ function App() {
             <ReactFullpage
                 licenseKey="gplv3-license"
                 credits={{ enabled: true }}
-                navigation={true}
-                navigationPosition="right"
+                // navigation={true}
+                // navigationPosition="right"
+                paddingTop="72px"
                 scrollingSpeed={650}
-                anchors={["slide1", "slide2"]}
+                anchors={["slide1", "slide2", "slide3"]}
                 render={({ fullpageApi }) => {
                     return (
                         <ReactFullpage.Wrapper>
-                            <section className="section bg-white w-full flex flex-col relative">
+                            <section className="section bg-white w-full flex flex-col relative pt-[72px]">
                                 {/* Intro Section */}
                                 <section className="bg-white py-8 flex flex-col items-center justify-center h-full" data-achor="slide1">
                                     <h2 className="text-4xl">프로젝트 제목 소개</h2>
@@ -66,7 +67,20 @@ function App() {
                                 </section>
                             </section>
 
-                            <section className="section bg-gray-500 flex flex-col items-center" data-achor="slide2"></section>
+                            {/* 프로젝트 소개 부문 */}
+                            {/* 프로젝트에 따라서 테마 변경 */}
+                            <section className="section bg-gray-500 flex h-screen" data-achor="slide2">
+                                <div className="flex justify-center items-center w-full gap-12">
+                                    {/* 스와이퍼 자리? */}
+                                    <div className="flex bg-red-300 w-[650px] h-[600px]"></div>
+
+                                    {/* 텍스트 설명 */}
+                                    <div className="flex bg-white w-[650px] h-[800px]"></div>
+                                </div>
+                            </section>
+
+                            {/* 나에 대해서 설명하는 부분  */}
+                            <section className="section flex bg-yellow-400" data-achor="slide3"></section>
                         </ReactFullpage.Wrapper>
                     );
                 }}
