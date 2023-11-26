@@ -9,6 +9,7 @@ import "swiper/css";
 import dummy1 from "@src/assets/img/Slide1.jpg";
 import dummy2 from "@src/assets/img/Slide2.jpg";
 import dummy3 from "@src/assets/img/Slide3.jpg";
+import bottomArrow from "@src/assets/img/ic_arrow.svg";
 
 // const Container = tw.div`
 //     flex
@@ -37,11 +38,13 @@ function App() {
                         <ReactFullpage.Wrapper>
                             <section className="section bg-white w-full flex flex-col relative">
                                 {/* Intro Section */}
-                                <section className="bg-white flex flex-col items-center " data-achor="slide1">
+                                <section className="bg-white flex flex-col items-center" data-achor="slide1">
                                     {/* 슬라이퍼 인덱스에 따라서 제목 변경 */}
                                     <h2 className="text-4xl">프로젝트 제목 소개</h2>
                                     {/* 설명도 마찬가지 */}
-                                    <p className="mt-3">기여도 및 부연설명 부분</p>
+                                    <p className="mt-4">기여도 및 부연설명 부분 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</p>
+                                    <p className="mt-4">기여도 및 부연설명 부분 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</p>
+                                    <p className="mt-4">기여도 및 부연설명 부분 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</p>
 
                                     <div className="flex h-[650px] items-center gap-4 mt-3">
                                         {/* Prev Button */}
@@ -82,8 +85,8 @@ function App() {
                                         {/* <div className="icon-xl bg-red-200 cursor-pointer" onClick={() => swiperRef.current?.slideNext()}></div> */}
                                     </div>
 
-                                    <div className="flex icon-xl bg-red-200 cursor-pointer absolute bottom-8" onClick={() => fullpageApi.moveSectionDown()}>
-                                        Arrow Icon
+                                    <div className="flex icon-lg cursor-pointer absolute bottom-8 bounce" onClick={() => fullpageApi.moveSectionDown()}>
+                                        <img className="w-full rotate-180" src={bottomArrow} alt="bottom_arrow" />
                                     </div>
                                 </section>
                             </section>
