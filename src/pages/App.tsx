@@ -93,13 +93,25 @@ function App() {
 
                             {/* 프로젝트 소개 부문 */}
                             {/* 프로젝트에 따라서 테마 변경 */}
-                            <section className="section bg-gray-500 flex h-screen" data-achor="slide2">
-                                <div className="flex justify-center items-center w-full gap-12">
-                                    {/* 스와이퍼 자리? */}
-                                    <div className="flex bg-red-300 w-[650px] h-[600px]"></div>
+                            <section className="section bg-slate-400 flex overflow-hidden " data-achor="slide2">
+                                <div className="flex flex-col bg-white w-fit mx-auto rounded-lg p-8 shadow-modal-default relative items-center">
+                                    {/* 프로젝트 타이틀 */}
+                                    <div>프로젝트 제목</div>
+                                    {/* 부연 설명 */}
+                                    <div className="my-4">부연 설명</div>
 
-                                    {/* 텍스트 설명 */}
-                                    <div className="flex bg-white w-[650px] h-[800px]"></div>
+                                    {/* 컨텐츠 */}
+                                    <div className="flex gap-12">
+                                        {/* 이미지, 숫자페이지네이션, 클릭했을때 넓은 크기의 이미지 팝업 */}
+                                        <div className="flex bg-red-300 w-[650px] h-[600px]"></div>
+
+                                        {/* 텍스트 설명 */}
+                                        <div className="flex bg-black w-[650px] h-[800px]"></div>
+                                    </div>
+                                    {/* 이전 프로젝트 */}
+                                    <div className="w-[80px] h-[80px] bg-yellow-400 absolute -left-28 top-[50%] -translate-y-2/4"></div>
+                                    {/* 다음 프로젝트 */}
+                                    <div className="w-[80px] h-[80px] bg-yellow-400 absolute -right-28 top-[50%] -translate-y-2/4"></div>
                                 </div>
                             </section>
 
