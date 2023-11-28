@@ -125,6 +125,10 @@ export default {
                 height: "height",
                 spacing: "margin, padding",
             },
+            animation: {
+                glow: "",
+            },
+            keyframes: {},
         },
     },
     plugins: [],
