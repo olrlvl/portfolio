@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import tw from "tailwind-styled-components";
 import ReactFullpage from "@fullpage/react-fullpage";
 import SwiperCore from "swiper";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 // asset dummy img
@@ -61,7 +62,8 @@ function App() {
                                             navigation
                                             loop={true}
                                             roundLengths={true}
-                                            autoplay={{ delay: 3000 }}
+                                            modules={[Autoplay]}
+                                            autoplay={{ delay: 3000, disableOnInteraction: false }}
                                             pagination={{ clickable: true }}
                                         >
                                             <SwiperSlide className="flex overflow-hidden shadow-select-box rounded-xl">
