@@ -14,6 +14,7 @@ import bottomArrow from "@src/assets/img/ic_arrow.svg";
 import rightArrow from "@src/assets/img/ic_right.svg";
 import leftArrow from "@src/assets/img/ic_left.svg";
 
+// Ex) 테일윈드 스타일 컴포넌트 작성방법
 // const Container = tw.div`
 //     flex
 //     items-center
@@ -24,15 +25,22 @@ import leftArrow from "@src/assets/img/ic_left.svg";
 //     bg-indigo-600
 // `;
 
+// const pluginWrapper = () => {
+//     require("../../node_modules/fullpage.js/vendors/");
+// };
+
 function App() {
     const swiperRef = useRef<SwiperCore>();
+
     return (
         <div>
             <ReactFullpage
+                // pluginWrapper={pluginWrapper}
                 licenseKey="gplv3-license"
                 credits={{ enabled: true }}
                 // navigation={true}
                 // navigationPosition="right"
+                scrollOverflow={true}
                 paddingTop="72px"
                 scrollingSpeed={650}
                 anchors={["slide1", "slide2", "slide3"]}
@@ -66,22 +74,22 @@ function App() {
                                             autoplay={{ delay: 3000, disableOnInteraction: false }}
                                             pagination={{ clickable: true }}
                                         >
-                                            <SwiperSlide className="flex overflow-hidden shadow-select-box rounded-xl">
+                                            <SwiperSlide className="flex overflow-hidden shadow-select-box rounded-xl cursor-pointer">
                                                 <img className="w-full" src={dummy1} alt="first project" />
                                             </SwiperSlide>
-                                            <SwiperSlide className="flex overflow-hidden shadow-select-box rounded-xl">
+                                            <SwiperSlide className="flex overflow-hidden shadow-select-box rounded-xl cursor-pointer">
                                                 <img className="w-full" src={dummy2} alt="second project" />
                                             </SwiperSlide>
-                                            <SwiperSlide className="flex overflow-hidden shadow-select-box rounded-xl">
+                                            <SwiperSlide className="flex overflow-hidden shadow-select-box rounded-xl cursor-pointer">
                                                 <img className="w-full" src={dummy3} alt="third project" />
                                             </SwiperSlide>
-                                            <SwiperSlide className="flex shadow-select-box">
-                                                <img className="w-full rounded-xl" src={dummy1} alt="first project" />
+                                            <SwiperSlide className="flex overflow-hidden shadow-select-box rounded-xl cursor-pointer">
+                                                <img className="w-full" src={dummy1} alt="first project" />
                                             </SwiperSlide>
-                                            <SwiperSlide className="flex overflow-hidden shadow-select-box rounded-xl">
+                                            <SwiperSlide className="flex overflow-hidden shadow-select-box rounded-xl cursor-pointer">
                                                 <img className="w-full" src={dummy2} alt="second project" />
                                             </SwiperSlide>
-                                            <SwiperSlide className="flex overflow-hidden shadow-select-box rounded-xl">
+                                            <SwiperSlide className="flex overflow-hidden shadow-select-box rounded-xl cursor-pointer">
                                                 <img className="w-full" src={dummy3} alt="third project" />
                                             </SwiperSlide>
                                         </Swiper>
@@ -125,7 +133,9 @@ function App() {
                             </section>
 
                             {/* 나에 대해서 설명하는 부분  */}
-                            <section className="flex bg-yellow-400 section" data-achor="slide3"></section>
+                            <section id="test" className="flex bg-yellow-400 section" data-achor="slide3">
+                                <div className="w-[500px] h-[3440px] bg-black">추가영역 테스트</div>
+                            </section>
                         </ReactFullpage.Wrapper>
                     );
                 }}
