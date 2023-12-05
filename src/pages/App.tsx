@@ -1,10 +1,13 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import tw from "tailwind-styled-components";
 import ReactFullpage from "@fullpage/react-fullpage";
 import SwiperCore from "swiper";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
+
+// asset text resource
+import resource from "@src/assets/json/resource.json";
 
 // asset dummy img
 import dummy1 from "@src/assets/img/Slide1.jpg";
@@ -31,6 +34,12 @@ import leftArrow from "@src/assets/img/ic_left.svg";
 
 function App() {
     const swiperRef = useRef<SwiperCore>();
+    const [swiperIdx, setSwiperIdx] = useState<number>(0);
+    const [source] = useState([...resource, ...resource]);
+
+    useEffect(() => {
+        console.log(swiperIdx);
+    }, [swiperIdx]);
 
     return (
         <div>
@@ -50,8 +59,9 @@ function App() {
                             <section className="relative flex flex-col w-full bg-white section">
                                 {/* Intro Section */}
                                 <section className="flex flex-col items-center bg-white" data-achor="slide1">
+                                    <p>현재 슬라이드 Index : {swiperIdx}</p>
                                     {/* 슬라이퍼 인덱스에 따라서 제목 변경 */}
-                                    <h2 className="text-4xl">프로젝트 제목 소개</h2>
+                                    <h2 className="text-4xl">{source[swiperIdx].title}</h2>
                                     {/* 설명도 마찬가지 */}
                                     <p className="mt-4">기여도 및 부연설명 부분 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</p>
                                     <p className="mt-4">기여도 및 부연설명 부분 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</p>
@@ -63,34 +73,36 @@ function App() {
                                         {/* Slide */}
                                         <Swiper
                                             onSwiper={(swiper) => (swiperRef.current = swiper)}
-                                            className="w-[calc(100vw-64px)] h-full z-0 py-4"
+                                            onSlideChange={(swiper) => setSwiperIdx(() => swiper.realIndex)}
+                                            className="w-[calc(100vw-0px)] h-full z-0 py-4"
                                             spaceBetween={32}
                                             centeredSlides={true}
                                             slidesPerView={2.5}
                                             navigation
                                             loop={true}
+                                            loopAdditionalSlides={1}
                                             roundLengths={true}
                                             modules={[Autoplay]}
-                                            autoplay={{ delay: 3000, disableOnInteraction: false }}
+                                            autoplay={{ delay: 4000, disableOnInteraction: false }}
                                             pagination={{ clickable: true }}
                                         >
                                             <SwiperSlide className="flex overflow-hidden shadow-select-box rounded-xl cursor-pointer">
-                                                <img className="w-full" src={dummy1} alt="first project" />
+                                                <img className="w-full" src={dummy1} alt="Aucshow 2.0" />
                                             </SwiperSlide>
                                             <SwiperSlide className="flex overflow-hidden shadow-select-box rounded-xl cursor-pointer">
-                                                <img className="w-full" src={dummy2} alt="second project" />
+                                                <img className="w-full" src={dummy2} alt="Ad-Astra" />
                                             </SwiperSlide>
                                             <SwiperSlide className="flex overflow-hidden shadow-select-box rounded-xl cursor-pointer">
-                                                <img className="w-full" src={dummy3} alt="third project" />
+                                                <img className="w-full" src={dummy3} alt="Platme" />
                                             </SwiperSlide>
                                             <SwiperSlide className="flex overflow-hidden shadow-select-box rounded-xl cursor-pointer">
-                                                <img className="w-full" src={dummy1} alt="first project" />
+                                                <img className="w-full" src={dummy1} alt="Aucshow 2.0" />
                                             </SwiperSlide>
                                             <SwiperSlide className="flex overflow-hidden shadow-select-box rounded-xl cursor-pointer">
-                                                <img className="w-full" src={dummy2} alt="second project" />
+                                                <img className="w-full" src={dummy2} alt="Ad-Astra" />
                                             </SwiperSlide>
                                             <SwiperSlide className="flex overflow-hidden shadow-select-box rounded-xl cursor-pointer">
-                                                <img className="w-full" src={dummy3} alt="third project" />
+                                                <img className="w-full" src={dummy3} alt="Platme" />
                                             </SwiperSlide>
                                         </Swiper>
                                         {/* Next Button */}
