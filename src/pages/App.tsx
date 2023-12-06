@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import tw from "tailwind-styled-components";
 import ReactFullpage from "@fullpage/react-fullpage";
 import SwiperCore from "swiper";
@@ -17,7 +18,7 @@ import bottomArrow from "@src/assets/img/ic_arrow.svg";
 import rightArrow from "@src/assets/img/ic_right.svg";
 import leftArrow from "@src/assets/img/ic_left.svg";
 
-// Ex) 테일윈드 스타일 컴포넌트 작성방법
+// Ex) Tailwind 스타일 컴포넌트 작성방법
 // const Container = tw.div`
 //     flex
 //     items-center
@@ -28,18 +29,20 @@ import leftArrow from "@src/assets/img/ic_left.svg";
 //     bg-indigo-600
 // `;
 
-// const pluginWrapper = () => {
-//     require("../../node_modules/fullpage.js/vendors/");
-// };
-
 function App() {
+    // with swiper
     const swiperRef = useRef<SwiperCore>();
     const [swiperIdx, setSwiperIdx] = useState<number>(0);
+
+    // with fullpage
+    const [pageIndex, setPageIndex] = useState<number>(0);
+
+    // variable
     const [source] = useState([...resource, ...resource]);
 
     useEffect(() => {
-        console.log(swiperIdx);
-    }, [swiperIdx]);
+        pageIndex > 0 ? swiperRef.current?.autoplay.pause() : swiperRef.current?.autoplay.resume();
+    }, [pageIndex]);
 
     return (
         <div>
@@ -53,6 +56,12 @@ function App() {
                 paddingTop="72px"
                 scrollingSpeed={650}
                 anchors={["slide1", "slide2", "slide3"]}
+                afterLoad={(_origin, destination, direction) => {
+                    setPageIndex(() => destination.index);
+                    console.log(`current slide : ${destination.index}`);
+                    console.log(`current slide name : ${destination.anchor}`);
+                    console.log(direction ?? "empty");
+                }}
                 render={({ fullpageApi }) => {
                     return (
                         <ReactFullpage.Wrapper>
@@ -81,10 +90,9 @@ function App() {
                                             navigation
                                             loop={true}
                                             loopAdditionalSlides={1}
-                                            roundLengths={true}
+                                            // roundLengths={true}
                                             modules={[Autoplay]}
-                                            autoplay={{ delay: 4000, disableOnInteraction: false }}
-                                            pagination={{ clickable: true }}
+                                            autoplay={{ delay: 5000, disableOnInteraction: false }}
                                         >
                                             <SwiperSlide className="flex overflow-hidden shadow-select-box rounded-xl cursor-pointer">
                                                 <img className="w-full" src={dummy1} alt="Aucshow 2.0" />
@@ -124,6 +132,9 @@ function App() {
                                     <div className="text-heading01">프로젝트 제목</div>
                                     {/* 부연 설명 */}
                                     <div className="my-4 text-paraTitle">부연 설명</div>
+
+                                    <p>현재 Swiper Index : {swiperIdx}</p>
+                                    <p>현재 Page Index : {pageIndex}</p>
 
                                     {/* 컨텐츠 */}
                                     <div className="flex gap-12">
