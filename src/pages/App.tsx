@@ -56,6 +56,7 @@ function App() {
                 paddingTop="72px"
                 scrollingSpeed={650}
                 anchors={["slide1", "slide2", "slide3"]}
+                // sectionsColor={["", `${source[swiperIdx].color ?? ""}`]}
                 afterLoad={(_origin, destination, direction) => {
                     setPageIndex(() => destination.index);
                     console.log(`current slide : ${destination.index}`);
@@ -65,18 +66,27 @@ function App() {
                 render={({ fullpageApi }) => {
                     return (
                         <ReactFullpage.Wrapper>
-                            <section className="relative flex flex-col w-full bg-white section">
+                            <section className="relative flex flex-col w-full bg-white section z-1 h-full justify-start">
+                                {/* Animation Background */}
+                                <div className="area">
+                                    <div className="air air1"></div>
+                                    <div className="air air2"></div>
+                                    <div className="air air3"></div>
+                                    <div className="air air4"></div>
+                                </div>
                                 {/* Intro Section */}
-                                <section className="flex flex-col items-center bg-white" data-achor="slide1">
-                                    <p>현재 슬라이드 Index : {swiperIdx}</p>
-                                    {/* 슬라이퍼 인덱스에 따라서 제목 변경 */}
-                                    <h2 className="text-4xl">{source[swiperIdx].title}</h2>
-                                    {/* 설명도 마찬가지 */}
-                                    <p className="mt-4">기여도 및 부연설명 부분 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</p>
-                                    <p className="mt-4">기여도 및 부연설명 부분 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</p>
-                                    <p className="mt-4">기여도 및 부연설명 부분 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</p>
+                                <section className="flex flex-col items-center mt-[106px]" data-achor="slide1">
+                                    <div className="z-1 text-center text-white">
+                                        <p>현재 슬라이드 Index : {swiperIdx}</p>
+                                        {/* 슬라이퍼 인덱스에 따라서 제목 변경 */}
+                                        <h2 className="text-4xl">{source[swiperIdx].title}</h2>
+                                        {/* 설명도 마찬가지 */}
+                                        <p className="mt-4">기여도 및 부연설명 부분 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</p>
+                                        <p className="mt-4">기여도 및 부연설명 부분 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</p>
+                                        <p className="mt-4">기여도 및 부연설명 부분 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</p>
+                                    </div>
 
-                                    <div className="flex h-[650px] items-center gap-4 mt-3 flex-shrink-0">
+                                    <div className="flex h-[650px] items-center gap-4 mt-9 flex-shrink-0 ">
                                         {/* Prev Button */}
                                         {/* <div className="bg-red-200 cursor-pointer icon-xl" onClick={() => swiperRef.current?.slidePrev()}></div> */}
                                         {/* Slide */}
@@ -126,15 +136,19 @@ function App() {
 
                             {/* 프로젝트 소개 부문 */}
                             {/* 프로젝트에 따라서 테마 변경 */}
-                            <section className="flex overflow-hidden section bg-slate-400 " data-achor="slide2">
-                                <div className="relative flex flex-col items-center p-8 mx-auto bg-white rounded-lg w-fit shadow-modal-default">
+                            <section className="section overflow-hidden relative" data-achor="slide2">
+                                <div className={`absolute w-full h-full top-0 ${source[swiperIdx].color} transition-all duration-300`}></div>
+                                <div className="relative flex flex-col mx-auto p-8 my-4 bg-white rounded-lg w-fit shadow-modal-default items-center">
                                     {/* 프로젝트 타이틀 */}
-                                    <div className="text-heading01">프로젝트 제목</div>
+                                    <div className="text-heading01">{source[swiperIdx].title}</div>
                                     {/* 부연 설명 */}
                                     <div className="my-4 text-paraTitle">부연 설명</div>
 
                                     <p>현재 Swiper Index : {swiperIdx}</p>
                                     <p>현재 Page Index : {pageIndex}</p>
+                                    <p>Test 색상 : {source[swiperIdx].color ?? ""}</p>
+
+                                    <div className={`flex w-10 h-10 z-1 ${source[swiperIdx].color ?? ""}`}></div>
 
                                     {/* 컨텐츠 */}
                                     <div className="flex gap-12">
@@ -145,11 +159,17 @@ function App() {
                                         <div className="flex bg-black w-[650px] h-[600px]"></div>
                                     </div>
                                     {/* 이전 프로젝트 */}
-                                    <div className="flex w-[80px] h-[80px] absolute -left-28 top-[50%] -translate-y-2/4 cursor-pointer">
+                                    <div
+                                        className="flex w-[80px] h-[80px] absolute -left-28 top-[50%] -translate-y-2/4 cursor-pointer z-1"
+                                        onClick={() => swiperRef.current?.slidePrev()}
+                                    >
                                         <img className="fill-rose-900" src={leftArrow} alt="left_arrow" />
                                     </div>
                                     {/* 다음 프로젝트 */}
-                                    <div className="flex w-[80px] h-[80px] absolute -right-28 top-[50%] -translate-y-2/4 cursor-pointer">
+                                    <div
+                                        className="flex w-[80px] h-[80px] absolute -right-28 top-[50%] -translate-y-2/4 cursor-pointer z-1"
+                                        onClick={() => swiperRef.current?.slideNext()}
+                                    >
                                         <img className="fill-rose-900" src={rightArrow} alt="right_arrow" />
                                     </div>
                                 </div>
